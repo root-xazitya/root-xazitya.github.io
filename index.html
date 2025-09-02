@@ -1,1 +1,40 @@
-Test Page
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calcolatore Costo Energia</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Calcolatore Costo Energia Elettrica</h1>
+
+    <label for="power">Potenza (Watt):</label>
+    <input type="number" id="power" placeholder="Es. 1000">
+
+    <label for="provider">Gestore / Tariffa:</label>
+    <select id="provider" onchange="gestisciProvider()">
+    <option value="" selected>Scegli un gestore</option>
+    <option value="0.162">Enel Energia (0,162 €/kWh)</option>
+    <option value="0.141">A2A Energia (0,141 €/kWh)</option>
+    <option value="0.170">Eni Plenitude (0,170 €/kWh)</option>
+    <option value="0.143">EnerCoop (0,143 €/kWh)</option>
+    <option value="other">Inserisci manualmente</option>
+    </select>
+
+    <div id="manual-cost-field" style="display: none;">
+        <label for="cost">Costo per kWh (€):</label>
+        <input type="number" id="cost" step="0.001" placeholder="Es. 0.20">
+    </div>
+
+    <label for="time">Tempo di utilizzo (Ore):</label>
+    <input type="number" id="time" step="0.1" placeholder="Es. 3">
+
+    <button onclick="calcolaCosto()">Calcola</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
